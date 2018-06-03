@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title> ReDoS </title>
+    <link href="https://fonts.googleapis.com/css?family=Rammetto+One&text=SubscrietoNwl!" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="./redos.css"/>
+</head>
+<body>
+    <main>
+        <h1> Subscribe to<br/>our Newsletter! </h1>
+        <form id="form">
+            <input id="email" type="text" name="email" placeholder="E-mail"/>
+            <button>Submit</button>
+        </form>
+        <div id="out">
+            <output id="feedback">&nbsp;</output>
+            <time id="time">&nbsp;</time>
+        </div>
+    </main>
+    <script type="text/javascript">
+        // Form
+        const form = document.getElementById("form");
+        const email = document.getElementById("email");
+
+        // Output
+        const out = document.getElementById("out");
+        const feedback = document.getElementById("feedback");
+        const time = document.getElementById("time");
+
+        let checking = false;
+
+        form.onsubmit = function(e) {
+            e.preventDefault();
+
+            if(checking) return;
+            checking = true;
+
+            out.className = "processing";
+            feedback.innerText = "Checking e-mail...";
+            time.innerHTML = "&nbsp;";
+            setTimeout(function() {
+                check();
+                checking = false;
+            }, 100);
+        }
+
+        function check() {
+            // E-mail validation ReGex
+            // from http://regexlib.com/REDetails.aspx?regexp_id=1757
+            const regex = /^([a-zA-Z0-9])(([\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$/;
+
+            const time_before = performance.now();
+            if(regex.test(email.value)) {
+                const time_elapsed = ~~((performance.now() - time_before))/1e3;
+
+                out.className = "valid";
+                feedback.innerText = "E-mail is valid!";
+                time.innerText = time_elapsed + "s";
+
+                // form.submit();
+            } else {
+                const time_elapsed = ~~((performance.now() - time_before))/1e3;
+
+                out.className = "invalid";
+                feedback.innerText = "E-mail is invalid!";
+                time.innerText = time_elapsed + "s";
+            }
+        }
+    </script>
+</body>
+</html>

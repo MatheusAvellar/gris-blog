@@ -1,0 +1,74 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+    display: grid;
+    font-family: sans-serif;
+}
+main {
+    margin: auto;
+}
+h1 {
+    font-family: "Rammetto One";
+    font-size: 29px;
+    margin: 25px 0;
+    line-height: 1.2;
+}
+form {
+    display: grid;
+    grid-template-columns: 200px 70px;
+    grid-gap: 7px;
+}
+input {
+    border: 1px solid #a9a9a9;
+    padding: 5px 7px;
+    outline: none;
+}
+input:hover {
+    border-color: #666;
+}
+input:focus, input:active {
+    border: 1px solid #000;
+}
+button {
+    font-family: inherit;
+    background: #fff;
+    border: 1px solid #a9a9a9;
+    padding: 5px;
+    outline: none;
+}
+button:focus, button:active {
+    border-color: #000;
+}
+button:hover {
+    border-color: #666;
+}
+time {
+    display: block;
+}
+
+#out {
+    padding: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    border: 2px solid transparent;
+}
+#out.processing {
+    border-color: #3fa7d6;
+    color: #005982;
+
+}
+#out.valid {
+    border-color: #44cf6c;
+    color: #116535;
+}
+#out.invalid {
+    border-color: #c1292e;
+    color: #b30513;
+}
+#out.valid #time::before,
+#out.invalid #time::before {
+    content: "Took ";
+}
